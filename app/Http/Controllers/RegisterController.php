@@ -16,8 +16,10 @@ class RegisterController extends Controller {
             'address' => 'required',
             'email' => 'required|email',
             'age' => 'required|integer',
+            'Height' => 'required|numeric|between:2.50,99.99',
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+        
     
         if (!$validated) {
             return redirect()->route('register.show')->with('error', 'Form failed to submit.');
@@ -33,8 +35,9 @@ class RegisterController extends Controller {
             $address = $request->input('address');
             $email = $request->input('email');
             $age = $request->input('age');
+            $Height = $request->input('Height');
     
-            return view('submitted', compact('name', 'address', 'email', 'age', 'picturePath'));
+            return view('submitted', compact('name', 'address', 'email', 'age', 'Height', 'picturePath'));
         } else {
             return redirect()->route('register.show')->with('error', 'Image upload failed.');
         }

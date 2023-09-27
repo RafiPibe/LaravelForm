@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Register Form</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 </head>
 <body>
     @if (session('success'))
@@ -21,6 +21,7 @@
         <input type="text" name="address" placeholder="Address" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="number" name="age" placeholder="Age" required>
+        <input type="number" step="0.01" name="Height" placeholder="Height" required>
         <input type="file" name="picture" accept="image/*" required>
         <button type="submit" name="submit" placeholder="Register">Register</button>
     </form>
